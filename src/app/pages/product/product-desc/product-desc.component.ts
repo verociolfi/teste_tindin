@@ -11,7 +11,8 @@ export class ProductDescComponent implements OnInit {
   private id: string = "";
   constructor(
     private activeRoute: ActivatedRoute,
-    private productService: ProductService) { }
+    private productService: ProductService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.showProductDescription();
@@ -24,6 +25,10 @@ export class ProductDescComponent implements OnInit {
         console.log(res);
       });
     })
+  }
+
+  goTohome() {
+    this.router.navigate(['home']);
   }
 
 }

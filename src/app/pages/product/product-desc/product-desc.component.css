@@ -22,6 +22,9 @@
 .bread{
   color: #fff;
 }
+.breadcrumb-item a:hover {
+  cursor: pointer;
+}
 .form-control{
   border: #FC4444 1px solid;
   background-color: #1B1919;

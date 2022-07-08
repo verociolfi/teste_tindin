@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
       return this.listProducts;
     }
     let text = this.filterService.text;
-    return this.listProducts.filter(function (str) { return str.title.includes(text); });
+    return this.listProducts.filter(function (str) { return str.title.toLowerCase().includes(text.toLowerCase()); });
   }
 
   public loadList() {

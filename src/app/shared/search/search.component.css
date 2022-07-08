@@ -1,0 +1,22 @@
+.input-container{
+  min-width: 410px;
+}
+ #search-into{
+  z-index: 9;
+  position: absolute;
+  right: 0.5rem;
+  top:0.5rem;
+  border: #FC4444 2px solid;
+}
+.form-control:focus {
+  border-color: #FC4444;
+  box-shadow: 0 0 0 0.2rem rgba(196, 59, 59, 0.25);
+}
+.search-block{
+  padding: 0.8rem;
+}
+@media only screen and (max-width: 600px) {
+  .input-container{
+    min-width: 210px;
+  }
+}

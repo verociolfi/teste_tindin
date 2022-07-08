@@ -1,0 +1,16 @@
+.login-wrap {
+  width: 500px;
+}
+
+.form-control:focus {
+  border-color: #cdcdcd;
+  box-shadow: 0 0 0 0.2rem rgba(70, 70, 70, 0.25);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .login-wrap {
+    width: 385px;
+  }
+}

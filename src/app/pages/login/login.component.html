@@ -1,0 +1,19 @@
+<main class="container login-wrap mt-5">
+  <div class="bg-light p-5 rounded mt-3 text-center">
+    <h4>SIGN IN</h4>
+    <p class="lead">Insert your account information</p>
+    <div class="mb-3">
+      {{ text }}
+      <input type="email" class="form-control text-muted" id="exampleFormControlInput1" placeholder="Username or email" [(ngModel)]="text">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+    </div>
+
+    <div class="d-grid gap-2 col-12 mx-auto">
+      <button class="btn btn-dark mb-3" type="button" (click)="loginAction()"><strong>Login your Account</strong></button>
+    </div>
+    <strong>No account? Send email to fabio@tindin.com.br</strong>
+  </div>
+</main>
+

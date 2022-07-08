@@ -1,0 +1,10 @@
+<div class="col">
+  <div class="card bg-dark bg-opacity-10">
+    <div class="image" (click)="goToDetails()"><img src="{{getImageUrl()}}" class="img-fluid" alt="..."><i class='bx bx-search i'><br><span>ver detalhes</span></i> </div>
+    <div class="card-body text-center text-white">
+      <h5 class="card-title">{{product?.title}}</h5>
+      <h4 class="card-text"><strong>{{product?.mediumPrice | currency}}</strong></h4>
+      <span class="badge rounded-pill bg-danger">{{product?.rating}}/10</span>
+    </div>
+  </div>
+</div>

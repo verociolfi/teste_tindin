@@ -1,0 +1,20 @@
+.icon {
+  color: #FC4444;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+
+.i {
+  padding: 5px;
+}
+
+footer {
+  background: #252525;
+}
+
+@media only screen and (max-width: 600px) {
+  .copy {
+    font-size: 0.6rem;
+  }
+}

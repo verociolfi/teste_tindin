@@ -9,17 +9,28 @@ import { subscribeOn } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loading:boolean = false;
 
   text = '';
 
-  constructor(private LoginService: LoginService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
 
   }
 
   public loginAction() {
-    this.LoginService.login("master@tindin.com.br", "123");
+    this.loginService.login("mastr@tindin.com.br", "123");
+
+
+
+  }
+
+  public retorno(){
+    console.log("eu retornei do inferno");
+  }
+  getLoadingStatus():boolean{
+    return this.loginService.getStatusLoading();
   }
 
 }

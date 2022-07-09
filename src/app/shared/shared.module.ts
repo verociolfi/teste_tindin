@@ -5,15 +5,16 @@ import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchLoggedComponent } from './search-logged/search-logged.component';
 import { BannerComponent } from './banner/banner.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
 @NgModule({
-  declarations: [FooterComponent, SearchComponent, BannerComponent, SearchLoggedComponent],
+  declarations: [FooterComponent, SearchComponent, BannerComponent, SearchLoggedComponent, CarouselComponent],
   imports: [
     CommonModule,
     FormsModule
   ],
-  exports: [FooterComponent, SearchComponent, BannerComponent, SearchLoggedComponent],
+  exports: [FooterComponent, SearchComponent, BannerComponent, SearchLoggedComponent, CarouselComponent]
 })
 export class SharedModule { }

@@ -1,58 +1,49 @@
-import { Thumb, ThumbType } from './../../model/thumb';
+
 import { Product } from './../../model/product-model';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Component, OnInit, } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit, OnChanges {
+export class BannerComponent implements OnInit {
   public photoSelected: number = 0;
-  @Input() product?: Product;
-  listProducts: Thumb[] = [];
-  constructor(private sanitizer: DomSanitizer) {
+  public listPhotos: string[] = [];
+  constructor(private productService: ProductService) {
 
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.prepareList();
-    console.log(this.listProducts);
-  }
 
   ngOnInit(): void {
-
+    this.getGamesBanner();
+    console.log('é aqui o content', this.listPhotos)
   }
 
-  prepareList(): void {
-    this.product?.photos.forEach(photo => {
-      this.listProducts.push({ type: ThumbType.FOTO, url: photo.url,video:"" })
-    });
+  getGamesBanner() {
+    this.productService.getProductList().subscribe(res => {
+      for (let i = 0; i < 3; i++) {
+        this.listPhotos.push(res.games[i].photos[0].url);
+      }
+    })
+  }
 
-    this.product?.videos.forEach(video => {
-      let trustedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(video.url);
-      this.listProducts.push({ type: ThumbType.VIDEO, url: "", video: trustedUrl })
-    });
-    console.log(this.listProducts)
+  getList(): string[] {
+    return this.listPhotos;
   }
 
   calssActive(photo: number, style: string) {
     return photo === this.photoSelected ? style : "";
   }
 
-  selectImage(photo: number) {
-    this.photoSelected = photo;
-  }
-
   prevBannerPhoto() {
-    this.photoSelected + 1 === this.product?.photos?.length ? 0 : this.photoSelected += 1;
+    this.photoSelected + 1 === this.listPhotos.length ? 0 : this.photoSelected += 1;
   }
 
   nextBannerPhoto() {
     this.photoSelected === 0 ? 0 : this.photoSelected -= 1;
   }
-  isImage(item: Thumb): boolean {
-    return item.type === ThumbType.FOTO;
-  }
+
 
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { Component } from '@angular/core';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
@@ -10,12 +11,26 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 })
 export class AppComponent {
   title = 'tindin';
-  constructor(public loginService:LoginService){}
-  alterText() {
-    console.log("estamos quase la");
+  constructor(public loginService:LoginService,
+    private router:Router){}
+
+
+  showSearch():boolean {
+    return !this.loginService.getLogged();
+  }
+  showLogin():boolean {
+    return this.loginService.getLogged();
   }
 
-  showSearch() {
-    return !this.loginService.getLogged();
+  goToHome(){
+    this.router.navigate(['home']);
+
+  }
+  logout () {
+    this.loginService.logout();
+  }
+  goToLogin(){
+    this.router.navigate(['login']);
+
   }
 }

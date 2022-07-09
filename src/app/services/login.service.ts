@@ -33,6 +33,7 @@ export class LoginService {
     this.setLoading(false);
   }
   getLogged(): boolean {
+    this.verifyLogged();
     return this.logged;
   }
   setLoading(status: boolean) {
@@ -41,7 +42,14 @@ export class LoginService {
   getStatusLoading(): boolean {
     return this.loading;
   }
-
+  getToken(): string {
+    return this.token;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    this.logged = false;
+    this.router.navigate(['home']);
+  }
   verifyLogged() {
     if (localStorage.getItem('token')) {
       this.logged = true;

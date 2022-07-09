@@ -1,11 +1,14 @@
-<div class="album py-5">
-  <div *ngIf="loading" class="text-white">Carregando...</div>
-  <div class="container" *ngIf="!loading">
-    <div class="row row-cols-4">
+
+<div class="album py-5s mb-15">
+  <div *ngIf="loading" class=" container text-center text-white">Carregando...</div>
+  <div class="container text-center" *ngIf="!loading">
+    <div class="row row-cols-4 mt-5">
       <div *ngFor="let product of getList().slice(0, showMore)">
         <app-product [product]="product"></app-product>
       </div>
     </div>
-    <button (click)="increaseShowMore()"> ae carai</button>
+      <button type="button" class="btn btn-danger btn-lg mt-5" (click)="increaseShowMore()">Show More</button>
+
+
   </div>
 </div>

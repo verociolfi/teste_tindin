@@ -1,29 +1,15 @@
-
-<div class="text-white">
-  {{product|json}}
-</div>
-
 <div class="container">
   <div class="d-flex justify-content-center">
     <nav aria-label="breadcrumb" >
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#" class="bread"><i class='bx bx-home' ></i></a></li>
-        <li class="breadcrumb-item active bread" aria-current="page">Name of the Game</li>
+        <li class="breadcrumb-item active bread" aria-current="page">Create a Game</li>
       </ol>
     </nav>
   </div>
   <div class="row">
     <div class="col">
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <svg class="bd-placeholder-img" width="100%" height="500px"
@@ -31,24 +17,14 @@
               focusable="false"><rect width="100%" height="500px" fill="#777" /></svg>
               <div class="container">
                 <div class="carousel-caption text-center">
-                  <h1>Example headline.</h1>
-                  <p>Some representative placeholder content for the first slide
-                    of the carousel.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                  <h1>Add a photo</h1>
+
+
                 </div>
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button"
-            data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button"
-            data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+
         </div>
 
       </div>
@@ -58,13 +34,13 @@
             <h3><span class="badge rounded-3 bg-danger">7,5/10</span></h3>
           </div>
           <div class="col-sm-10">
-            <input type="text" placeholder="Enter game name" class="form-control text-white" [(ngModel)]="product.title">
+            <input type="text" placeholder="Enter game name" class="form-control text-white" >
           </div>
 
         </div>
         <div class="mb-3 row">
           <div class="col-sm-12">
-            <input type="text" placeholder="Enter resume game here" class="form-control text-white" [(ngModel)]="product.resume">
+            <input type="text" placeholder="Enter resume game here" class="form-control text-white" >
           </div>
         </div>
         <hr class="text-white">
@@ -126,23 +102,33 @@
         <div class="mb-3 row">
           <label  class="col-sm-2 col-form-label text-white">Medium Price:</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control text-white"  placeholder="Enter medium price" [(ngModel)]="product.mediumPrice" >
+            <input type="number" class="form-control text-white"  placeholder="Enter medium price" >
           </div>
         </div>
         <div class="mb-3 row">
           <label class="col-sm-2 col-form-label text-white">Release Year:</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control text-white" placeholder="Enter release year" [(ngModel)]="product.releaseYear">
+            <input type="number" class="form-control text-white" placeholder="Enter release year" >
           </div>
         </div>
         <div class="mb-3 row">
           <label for="inputPassword" class="col-sm-2 col-form-label text-white">Description:</label>
           <div class="col-sm-10">
-            <textarea type="number" class="form-control text-white" placeholder="Enter description game" [(ngModel)]="product.description"></textarea>
+            <textarea type="number" class="form-control text-white" placeholder="Enter description game" ></textarea>
           </div>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-sm-12 text-center " >
+            <button class="btn btn-dark btn-md" (click)="goBack()">Cancel</button>
+            <button class="btn btn-danger btn-md" (click)="create()">Create!</button>
+
+          </div>
+
+
         </div>
 
 
       </div>
     </div>
   </div>
+

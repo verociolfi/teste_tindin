@@ -7,8 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Interceptor } from './auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SharedModule,
     PagesModule,
+    Interceptor,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot()
   ],

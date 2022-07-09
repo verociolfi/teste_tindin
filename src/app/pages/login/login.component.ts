@@ -10,7 +10,8 @@ import { Error } from 'src/app/model/error';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
-  text = '';
+  email = '';
+  password = '';
   errorMsg: string = "";
   constructor(private loginService: LoginService) {
   }
@@ -20,16 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   public loginAction() {
-    this.loginService.login("mastr@tindin.com.br", "123");
+    this.loginService.login(this.email, this.password);
   }
 
-  public retorno() {
-    console.log("eu retornei do inferno");
-  }
   getLoadingStatus(): boolean {
     return this.loginService.getStatusLoading();
   }
-  closeAlert() {
-    //arruma saporra
-  }
+
 }

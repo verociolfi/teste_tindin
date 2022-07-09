@@ -11,21 +11,22 @@
     <header class="py-3 mb-2 border-bottom">
       <div class="container-fluid d-flex align-items-center">
         <div class="container-fluid d-flex justify-content-evenly">
-          <div>
+          <div (click)="goToHome()">
             <img src="../assets/img/porquinho_branco_horizontal.svg" alt="Tindin" class="logo-tindin">
           </div>
           <app-search *ngIf="showSearch()"></app-search>
+          <button type="button" class="btn btn-dark" (click)="goToLogin()" *ngIf="!showLogin()">Login</button>
           <div class="btn-group align-self-center" dropdown>
-            <a href="#" class="d-block link-dark text-decoration-none
+            <a class="d-block link-dark text-decoration-none
               dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown"
               aria-expanded="false" id="button-animated" dropdownToggle
-              type="button" aria-controls="dropdown-animated">
+              type="button" aria-controls="dropdown-animated" *ngIf="showLogin()">
               <img src="../assets/img/avatar.png" alt="mdo" width="40"
                 height="40" class="rounded-circle avatar-circle">
             </a>
             <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
               role="menu" aria-labelledby="button-animated">
-              <li role="menuitem"><a class="dropdown-item" href="#">Logout</a></li>
+              <li role="menuitem"><a class="dropdown-item" (click)="logout()">Logout</a></li>
             </ul>
           </div>
         </div>

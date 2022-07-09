@@ -52,7 +52,7 @@
 select option[selected]{
   background-color: #FC4444;
 }
-.opt:hover{background-color:yellow;}
+
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #fff;
@@ -66,3 +66,8 @@ select option[selected]{
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
   color: #fff;
 }
+.mb-15{
+  margin-bottom: 5rem;
+}
+
+

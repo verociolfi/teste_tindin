@@ -1,5 +1,6 @@
 import { FilterService } from './../../services/filter.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-logged',
@@ -8,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchLoggedComponent implements OnInit {
 
-  constructor(public filterService:FilterService) { }
+  constructor(public filterService:FilterService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
 
   newGame() {
+    this.router.navigate(['create']);
 
   }
 

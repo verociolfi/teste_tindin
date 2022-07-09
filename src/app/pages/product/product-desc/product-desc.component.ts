@@ -1,3 +1,5 @@
+import { Product } from './../../../model/product-model';
+import { Game } from './../../../model/game';
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDescComponent implements OnInit {
   private id: string = "";
+  public product?: Product;
+  public loading:boolean = false;
+
   constructor(
     private activeRoute: ActivatedRoute,
     private productService: ProductService,
@@ -19,10 +24,13 @@ export class ProductDescComponent implements OnInit {
   }
 
   public showProductDescription() {
+    this.loading = true;
     this.activeRoute.queryParams.subscribe(res => {
       this.id = res['id'];
-      this.productService.getProduct(this.id).subscribe(res => {
-        console.log(res);
+      this.productService.getProduct(this.id).subscribe(product => {
+        this.product = product.game;
+        console.log(this.product);
+        this.loading = false;
       });
     })
   }
@@ -30,5 +38,7 @@ export class ProductDescComponent implements OnInit {
   goTohome() {
     this.router.navigate(['home']);
   }
+
+
 
 }

@@ -2,6 +2,7 @@ import { LoginModel } from './../model/login-model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Error } from '../model/error';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,7 @@ export class LoginService {
     }).subscribe(res => {
       this.setLogged(res);
     }, error => {
-      this.setLoading(false);
-      console.log(error);
+      console.log(error)
     })
   }
   setLogged(res: LoginModel) {
@@ -35,15 +35,15 @@ export class LoginService {
   getLogged(): boolean {
     return this.logged;
   }
-  setLoading(status:boolean){
+  setLoading(status: boolean) {
     this.loading = status;
   }
-  getStatusLoading():boolean{
+  getStatusLoading(): boolean {
     return this.loading;
   }
 
   verifyLogged() {
-    if(localStorage.getItem('token')) {
+    if (localStorage.getItem('token')) {
       this.logged = true;
     }
   }

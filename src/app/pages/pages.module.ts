@@ -1,3 +1,4 @@
+import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './../shared/shared.module';
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -16,6 +17,7 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     ProductComponent,
     ProductDescComponent,
+    ProductCreateComponent,
     ProductListComponent],
   imports: [
     FormsModule,

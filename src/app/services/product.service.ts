@@ -1,3 +1,4 @@
+import { Game } from './../model/game';
 import { ListGamesModel } from './../model/list-games-model';
 import { Product } from './../model/product-model';
 
@@ -15,8 +16,8 @@ export class ProductService {
   public getProductList(): Observable<ListGamesModel> {
     return this.http.get<ListGamesModel>(this.url + '/games');
   }
-  public getProduct(id: string): Observable<Product> {
-    return this.http.get<Product>(this.url + '/games/' + id);
+  public getProduct(id: string): Observable<Game> {
+    return this.http.get<Game>(this.url + '/games/' + id);
   }
 
 }

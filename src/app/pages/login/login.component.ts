@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { subscribeOn } from 'rxjs';
+import { Error } from 'src/app/model/error';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +9,11 @@ import { subscribeOn } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loading:boolean = false;
-
+  loading: boolean = false;
   text = '';
-
-  constructor(private loginService: LoginService) { }
+  errorMsg: string = "";
+  constructor(private loginService: LoginService) {
+  }
 
   ngOnInit(): void {
 
@@ -21,16 +21,15 @@ export class LoginComponent implements OnInit {
 
   public loginAction() {
     this.loginService.login("mastr@tindin.com.br", "123");
-
-
-
   }
 
-  public retorno(){
+  public retorno() {
     console.log("eu retornei do inferno");
   }
-  getLoadingStatus():boolean{
+  getLoadingStatus(): boolean {
     return this.loginService.getStatusLoading();
   }
-
+  closeAlert() {
+    //arruma saporra
+  }
 }

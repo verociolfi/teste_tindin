@@ -1,21 +1,31 @@
-.carousel-indicators [data-bs-target] {
-  box-sizing: content-box;
-  flex: 0 1 auto;
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  margin-right: 3px;
-  margin-left: 3px;
-  text-indent: -999px;
-  cursor: pointer;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0;
-  border-radius: 48px;
-  opacity: .5;
-  transition: opacity .6s ease;
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
 }
-.carousel-indicators .active {
-  opacity: 1;
-  background: #FC4444;
+
+#custCarousel .carousel-indicators {
+position: static;
+margin-top:20px;
+background-color: #1B1919;
 }
+
+.carousel-control-next-icon {
+  background-color: black;
+}
+.carousel-control-prev-icon {
+  background-color: black;
+}
+#custCarousel .carousel-indicators li img {
+display: block;
+opacity: 0.5;
+}
+
+#custCarousel .carousel-indicators li.active img {
+opacity: 1;
+}
+
+#custCarousel .carousel-indicators li:hover img {
+opacity: 0.75;
+}
+
+

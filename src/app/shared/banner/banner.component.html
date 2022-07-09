@@ -1,28 +1,41 @@
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <svg class="bd-placeholder-img" width="100%" height="500px"  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="500px" fill="#777"/></svg>
-
-      <div class="container">
-        <div class="carousel-caption text-center">
-          <h1>Example headline.</h1>
-          <p>Some representative placeholder content for the first slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="custCarousel" class="carousel slide" data-ride="carousel"
+        align="center">
+        <!-- slides -->
+        <div class="carousel-inner">
+          <div *ngFor="let item of listProducts; let i= index">
+            <div class="carousel-item" [ngClass]="calssActive(i,'active')">
+              <img src="{{item.url}}" alt="Hills" *ngIf="isImage(item)">
+              <iframe width="420" height="315" *ngIf="!isImage(item)" [src]="item.video"></iframe>
+            </div>
+          </div>
         </div>
+
+        <!-- Left right -->
+        <a class="carousel-control-prev" data-slide="next"
+          (click)="nextBannerPhoto()">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" data-slide="prev"
+          (click)="prevBannerPhoto()">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+
+        <!-- Thumbnails -->
+        <ol class="carousel-indicators list-inline">
+          <div *ngFor="let item of listProducts; let i= index">
+            <li class="list-inline-item" [ngClass]="calssActive(i, 'active')"
+              (click)="selectImage(i)">
+              <a id="carousel-selector-0" [ngClass]="calssActive(i, 'selected')"
+                data-slide-to="0" data-target="#custCarousel">
+                <img src="{{item.url}}" class="img-fluid" *ngIf="isImage(item)">
+              </a>
+            </li>
+          </div>
+        </ol>
       </div>
     </div>
-    </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  </div>
 </div>
